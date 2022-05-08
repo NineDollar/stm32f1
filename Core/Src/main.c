@@ -1,17 +1,21 @@
 //
 // Created by NineDollar on 2022/5/7.
 //
+#include <stdbool.h>
 #include "stm32f10x.h"
+#include "delay.h"
+#include "led.h"
+#include "usart.h"
+#include <stdarg.h>
+
 int main() {
-  GPIO_InitTypeDef GPIO_InitStructure;
-  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-  GPIO_Init(GPIOC, &GPIO_InitStructure);
-  GPIO_SetBits(GPIOC, GPIO_Pin_13);
-  GPIO_ResetBits(GPIOC, GPIO_Pin_13);
-  while (1) {
-    GPIO_ResetBits(GPIOC, GPIO_Pin_13);
+  SystemInit();
+  USART1_Config();
+  printf("abcd\n");
+  printf("printfÊä³ö\n");
+
+  while (true) {
+    UART1Test();
+    delay(300);
   }
 }
