@@ -3,7 +3,10 @@
 
 #include "stm32f10x.h"
 
-void delay(u32 nTime);	//毫秒延时函数
+void delay(u32 nTime);    //毫秒延时函数
+void my_delay(int n);
+void delay10ms();
+void delay10us();
 
 #endif //__DELAY_H
 
